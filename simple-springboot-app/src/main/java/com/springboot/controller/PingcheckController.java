@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping("/ping")
 public class PingcheckController {
 
-    @GetMapping
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("pong");
+    @GetMapping("/ping")
+    public String  ping() {
+        return "pong";
     }
 }
