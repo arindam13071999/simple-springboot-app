@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @SpringBootTest
+@ActiveProfiles("default")
 @AutoConfigureMockMvc
 public class PingcheckControllerTest {
 
