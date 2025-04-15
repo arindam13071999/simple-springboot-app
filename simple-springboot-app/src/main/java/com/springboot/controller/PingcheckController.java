@@ -4,9 +4,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
 
 @RestController
+@RequestMapping("/ping")
 public class PingcheckController {
 
-    @GetMapping("/ping")
+    @GetMapping
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok("pong");
     }
