@@ -2,13 +2,14 @@
         agent {
         dockerfile {
             dir 'simple-springboot-app/'
-        }
-
-        }
+            }
+          }
+       tools{
+             mvn 'Maven'
+            }
         stages {
             stage('Build') {
                 steps {
-                    sh 'mvn --version'
                     sh 'mvn clean package'
                 }
             }
