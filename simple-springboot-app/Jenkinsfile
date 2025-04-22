@@ -6,7 +6,7 @@
           stages {
             stage('Build') {
                 steps {
-                    bat 'mvn clean package'
+                    bat 'mvn -f simple-springboot-app/pom.xml clean package'
                 }
             }
             stage('Docker') {
