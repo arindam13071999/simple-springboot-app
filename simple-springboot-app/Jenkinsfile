@@ -5,7 +5,7 @@
             }
           }
        tools{
-             mvn 'Maven'
+             maven 'Maven'
             }
         stages {
             stage('Build') {
