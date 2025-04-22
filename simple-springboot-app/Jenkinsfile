@@ -1,0 +1,21 @@
+    pipeline {
+        agent any
+        stages {
+            stage('Build') {
+                steps {
+                    sh 'mvn clean package'
+                }
+            }
+            stage('Docker Build') {
+                steps {
+                    sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} .'
+                }
+            }
+            stage('Docker Push') {
+                steps {
+                    sh 'docker login -u arindamstingo -p Sting1999@'
+                    sh 'docker push arindamstingo/SpringApp:${BUILD_NUMBER}'
+                }
+            }
+        }
+    }
