@@ -16,7 +16,7 @@
             }
               }
                 steps {
-                    sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} ./simple-springboot-app/.'
+                    sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} simple-springboot-app/'
                     sh 'docker login -u arindamstingo -p Sting1999@'
                     sh 'docker push arindamstingo/SpringApp:${BUILD_NUMBER}'
                 }
