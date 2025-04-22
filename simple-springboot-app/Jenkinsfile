@@ -1,26 +1,27 @@
-    pipeline {
-        agent any
-     tools {
-        maven 'Maven'  // Must match the name you configured in Jenkins
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
     }
-          stages {
-            stage('Build') {
-                steps {
-                    bat 'mvn -f simple-springboot-app/pom.xml clean package'
+
+    stages {
+        stage('Build') {
+            steps {
+                dir('simple-springboot-app') {
+                    bat 'mvn clean package'
                 }
             }
-            stage('Docker') {
-            agent{
-            dockerfile {
-            dir 'simple-springboot-app/'
-            }
-              }
-                steps {
-                    sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} simple-springboot-app/'
+        }
+
+        stage('Docker') {
+            steps {
+                dir('simple-springboot-app') {
+                    sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} .'
                     sh 'docker login -u arindamstingo -p Sting1999@'
                     sh 'docker push arindamstingo/SpringApp:${BUILD_NUMBER}'
                 }
             }
-
         }
     }
+}
