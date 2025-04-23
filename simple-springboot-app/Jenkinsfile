@@ -17,7 +17,7 @@ pipeline {
         stage('Docker') {
             steps {
                 dir('simple-springboot-app') {
-                sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} -f simple-springboot-app/Dockerfile simple-springboot-app/'
+                sh 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} .'
 
                 sh 'docker login -u arindamstingo -p Sting1999@'
                     sh 'docker push arindamstingo/SpringApp:${BUILD_NUMBER}'
