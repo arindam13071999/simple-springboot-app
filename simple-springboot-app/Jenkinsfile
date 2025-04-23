@@ -19,7 +19,9 @@ pipeline {
                 dir('simple-springboot-app') {
                 bat 'docker build -t arindamstingo/springapp:%BUILD_NUMBER% .'
 
-                bat 'docker login -u arindamstingo -password-stdin Arindam1999@'
+              bat '''
+echo "Sting1999@" | docker login -u arindamstingo --password-stdin
+'''
                     bat 'docker push arindamstingo/springapp:%BUILD_NUMBER%'
                 }
             }
