@@ -20,7 +20,7 @@ pipeline {
                 bat 'docker build -t arindamstingo/springapp:%BUILD_NUMBER% .'
 
               bat '''
-echo "Sting1999@" | docker login -u arindamstingo --password-stdin
+echo "Arindam1999@" | docker login -u arindamstingo --password-stdin
 '''
                     bat 'docker push arindamstingo/springapp:%BUILD_NUMBER%'
                 }
