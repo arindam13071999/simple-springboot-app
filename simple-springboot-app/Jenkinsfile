@@ -17,10 +17,10 @@ pipeline {
         stage('Docker') {
             steps {
                 dir('simple-springboot-app') {
-                bat 'docker build -t arindamstingo/SpringApp:${BUILD_NUMBER} .'
+                bat 'docker build -t arindamstingo/SpringApp:%BUILD_NUMBER% .'
 
                 bat 'docker login -u arindamstingo -p Sting1999@'
-                    bat 'docker push arindamstingo/SpringApp:${BUILD_NUMBER}'
+                    bat 'docker push arindamstingo/SpringApp:%BUILD_NUMBER%'
                 }
             }
         }
