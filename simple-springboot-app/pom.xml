@@ -72,6 +72,23 @@
                           <groupId>org.jacoco</groupId>
                           <artifactId>jacoco-maven-plugin</artifactId>
                           <version>0.8.14-SNAPSHOT</version>
+	                   <executions>
+                             <!-- Prepares the agent to collect coverage data -->
+                             <execution>
+                              <id>prepare-agent</id>
+			          <goals>
+			            <goal>prepare-agent</goal>
+			          </goals>
+			        </execution>
+			        <!-- Generates the report after tests are run -->
+			        <execution>
+			          <id>report</id>
+			          <phase>verify</phase> <!-- Or prepare-package -->
+			          <goals>
+			            <goal>report</goal>
+			          </goals>
+			        </execution>
+			      </executions>			
                         </plugin>
 		</plugins>
 	</build>
